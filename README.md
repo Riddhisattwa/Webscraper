@@ -24,7 +24,11 @@ Web scraper using python to extract weather data from Accuweather and store it i
 5)Configure database settings in *config.ini*  
 6)Run the project  
 7)You should be getting this weeks weather data in MongoDB  
-8)You can run any analysis on the data later on  
+8)You can run any analysis on the data later on 
 
-#### You can use any website to scrape but this particular program has been designed for Accuweather only.  
+## Notice on Updates Made 
+1)Added Simple Map reduce job on the data we harvested from the Website.  
+2)We added a shell script to run the *main.py* script from crontab so that we get updated data in MongoDB 
+#### You can use any website to scrape but this particular program has been designed for Accuweather only. 
+#### MongoDB server must be running in the beginning to ensure updated data in the server. Please donot close the server.
 #### Link:*https://www.accuweather.com/en/in/kolkata/206690/daily-weather-forecast/206690?day=1*  
