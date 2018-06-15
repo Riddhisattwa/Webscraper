@@ -1,0 +1,5 @@
+/home/trainee/Desktop/mongodb-linux-x86_64-ubuntu1604-3.6.5/bin/mongod --fork --logpath /var/log/mongodb.lo
+g
+~/.virtualenvs/WebScraper/bin/python3.5 main.py
+
+

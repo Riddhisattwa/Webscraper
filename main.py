@@ -60,8 +60,8 @@ def get_website_data():
         payload={
             "date":date_div[count].get_text(),
             "year":now.year,
-            "temp":float(each_temps.get_text()[:-1]),
-            "smalltemp":smltemp,
+            "maxtemp":float(each_temps.get_text()[:-1]),
+            "mintemp":smltemp,
             "cond":condition[count].get_text(),
             "unit":"C"
         }
@@ -71,4 +71,10 @@ def get_website_data():
 
 if __name__ == '__main__':
     get_website_data()
+    data = get_config()
+    dbModule = connectdb.Dbfunction(data.get('hostname'), data.get('port'), data.get('dbname'), data.get('collection'))
+    res=dbModule.mapReduce(data.get('mapfile'),data.get('reducefile'))
+    output=list(res.find())
+    pprint.pprint(output)
+
 

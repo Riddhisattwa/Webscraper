@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-
+from bson.code import Code
 class Dbfunction:
 
     def __init__(self,host,port,dbname,collection,username=None,password=None):
@@ -39,8 +39,19 @@ class Dbfunction:
         db.logout()
         return post_id.acknowledged
 
+    def mapReduce(self,map_file,reduce_file):
 
+        db=self.connectMongo()
+        col=db.get_collection(self.collection)
 
+        #load map and reduce files
+
+        map=Code(open(map_file).read())
+        reduce=Code(open(reduce_file).read())
+
+        #perform mapreduce
+        results=col.map_reduce(map,reduce,out="map_reduce_example")
+        return results
 
 
 
